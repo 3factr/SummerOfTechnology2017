@@ -8,7 +8,7 @@ namespace DemoApp
         {
             InitializeComponent();
 
-            MainPage = new DemoAppPage();
+            MainPage = new NavigationPage(new DemoAppPage());
         }
 
         protected override void OnStart()
