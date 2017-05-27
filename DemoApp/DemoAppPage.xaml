@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:DemoApp"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:DemoApp"
 	Title="Welkom bij Xamarin.Forms"
-    x:Class="DemoApp.DemoAppPage">
+	x:Class="DemoApp.DemoAppPage">
 
-    <Label Text="Dit is onze allereerste pagina!"
-        VerticalOptions="Center"
-        HorizontalOptions="Center" />
+	<StackLayout Margin="20" Orientation="Vertical">
+
+		<Label Text="Dit is onze allereerste pagina!" FontAttributes="Bold" />
+
+		<Button Text="Naar de stempagina" VerticalOptions="CenterAndExpand" FontSize="26" Clicked="BtVotePage_Clicked" />
+
+	</StackLayout>
 
 </ContentPage>
