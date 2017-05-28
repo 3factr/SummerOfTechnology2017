@@ -50,6 +50,8 @@
     <Compile Include="VotePage.xaml.cs">
       <DependentUpon>VotePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="VoteService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
