@@ -5,6 +5,6 @@
 	Title="Stempagina"
     x:Class="DemoApp.VotePage">
 
-    <ListView ItemsSource="{Binding VoteOptions}" />
+    <ListView ItemsSource="{Binding VoteOptions}" ItemSelected="Handle_ItemSelected" />
 
 </ContentPage>
