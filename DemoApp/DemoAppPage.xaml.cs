@@ -12,7 +12,7 @@ namespace DemoApp
 
         void BtVotePage_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Stempagina", "We moeten de stempagina nog maken!", "Oké, ik probeer later opnieuw");
+            Navigation.PushAsync(new VotePage(), true);
         }
     }
 }
