@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:DemoApp;assembly=DemoApp"
+	Title="Resultaten"
+	x:Class="DemoApp.ResultsPage">
+
+	<ContentPage.Resources>
+        <ResourceDictionary>
+            <local:VotesConverter x:Key="VotesConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ListView RowHeight="60" x:Name="ResultsList" ItemsSource="{Binding Results}" SeparatorVisibility="None" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}" ItemSelected="Handle_ItemSelected">
+
+		<ListView.ItemTemplate>
+			<DataTemplate>
+				<ViewCell>
+                    <Grid Margin="10">
+
+                    <Grid.RowDefinitions>
+
+							<RowDefinition Height="30" />
+							<RowDefinition Height="15" />
+
+					</Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Text="{Binding VoteOption}" HorizontalOptions="Start" HorizontalTextAlignment="Start" />
+                        <Label Grid.Row="0" Text="{Binding Votes, Converter={StaticResource VotesConverter}}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+						<ProgressBar Grid.Row="1" Progress="{Binding Percentage}" />
+						
+					</Grid>
+				</ViewCell>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+
+	</ListView>
+
+</ContentPage>

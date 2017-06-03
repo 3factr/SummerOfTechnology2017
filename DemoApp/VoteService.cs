@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -37,11 +38,31 @@ namespace DemoApp
             }
         }
 
-        public async Task<Dictionary<string, int>> GetVotes()
+        public async Task<IList<VoteResult>> GetVotes()
         {
-            var response = await _httpClient.GetStringAsync("votes");
-            var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response);
-            return result;
+            Dictionary<string, int> result;
+
+            try
+            {
+                var response = await _httpClient.GetStringAsync("votes");
+                result = JsonConvert.DeserializeObject<Dictionary<string, int>>(response);
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine("Exception occured: " + ex.Message);
+                return null;
+            }
+
+            var total = result.Sum(kvp => kvp.Value);
+
+            var resultList = new List<VoteResult>();
+            foreach(var kvp in result)
+            {
+                resultList.Add(new VoteResult(kvp.Key, kvp.Value, total));
+            }
+
+            resultList.Sort();
+            return resultList;
         }
     }
 }

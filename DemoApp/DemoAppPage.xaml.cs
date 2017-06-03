@@ -14,5 +14,10 @@ namespace DemoApp
         {
             Navigation.PushAsync(new VotePage(), true);
         }
+
+        void BtResultsPage_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ResultsPage(), true);
+        }
     }
 }

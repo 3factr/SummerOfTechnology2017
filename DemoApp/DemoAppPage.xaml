@@ -12,6 +12,8 @@
 
 		<Button Text="Naar de stempagina" VerticalOptions="CenterAndExpand" FontSize="26" Clicked="BtVotePage_Clicked" />
 
+		<Button Text="Naar de resultaten" VerticalOptions="CenterAndExpand" FontSize="20" Clicked="BtResultsPage_Clicked" />
+
 	</StackLayout>
 
 </ContentPage>
