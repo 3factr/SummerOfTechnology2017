@@ -19,11 +19,11 @@ namespace DemoApp
             BindingContext = this;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             ResultsList.IsRefreshing = true;
-            await UpdateVotes();
+            UpdateVotes();
         }
 
         async Task UpdateVotes()
@@ -31,10 +31,10 @@ namespace DemoApp
             var voteService = new VoteService();
             var votes = await voteService.GetVotes();
 
-            if(votes != null && votes.Count > 0)
+            if (votes != null && votes.Count > 0)
             {
                 Results.Clear();
-                foreach(var result in votes)
+                foreach (var result in votes)
                 {
                     Results.Add(result);
                 }
